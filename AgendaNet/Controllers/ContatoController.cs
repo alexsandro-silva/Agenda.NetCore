@@ -57,20 +57,60 @@ namespace AgendaNet.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]Contato contato)
         {
+            if (contato == null)
+            {
+                return BadRequest();
+            }
+
+            _context.Contatos.Add(contato);
+            _context.SaveChanges();
+
+            return Ok("Contato cadastrado");
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(int id, [FromBody]Contato contato)
         {
+            if (contato == null || contato.Id != id)
+            {
+                return BadRequest();
+            }
+
+            var _contato = _context.Contatos.FirstOrDefault(c => c.Id == id);
+            if(_contato == null)
+            {
+                return NotFound("Contato não encontrado");
+            }
+
+            _contato.Nome = contato.Nome;
+            _contato.Empresa = contato.Empresa;
+            _contato.Cargo = contato.Cargo;
+            _contato.Email = contato.Email;
+            _contato.Telefone = contato.Telefone;
+
+            _context.Contatos.Update(_contato);
+            _context.SaveChanges();
+
+            return new NoContentResult();
         }
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var _contato = _context.Contatos.FirstOrDefault(c => c.Id == id);
+            if (_contato == null)
+            {
+                return NotFound();
+            }
+
+            _context.Contatos.Remove(_contato);
+            _context.SaveChanges();
+
+            return new NoContentResult();
         }
     }
 }
