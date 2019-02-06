@@ -68,6 +68,7 @@ namespace AgendaNet.Controllers
             _context.SaveChanges();
 
             return Ok("Contato cadastrado");
+
         }
 
         // PUT api/<controller>/5
