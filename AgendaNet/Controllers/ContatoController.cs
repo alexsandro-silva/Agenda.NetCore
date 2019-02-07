@@ -25,10 +25,10 @@ namespace AgendaNet.Controllers
             {
                 _context.Contatos.Add(new Contato
                 {
-                    Nome = "Fulano de Tal",
-                    Empresa = "Puppy Co",
-                    Cargo = "Auxiliar Administrativo",
-                    Email = "fulanodetal@puppyco.com.br",
+                    Nome = "Steve Jobs",
+                    Empresa = "Apple",
+                    Cargo = "CEO",
+                    Email = "steve@apple.com",
                     Telefone = "3456 7899"
                 });
                 _context.SaveChanges();
