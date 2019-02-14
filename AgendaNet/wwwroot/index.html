@@ -2,16 +2,53 @@
 <html ng-app="AgendaNet">
 <head>
     <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/estilo.css" />
+
     <title>AgendaNet</title>
 </head>
 <body ng-controller="MainController">
+    <nav class="navbar fixed-top navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">
+            <i class="fas fa-address-book"></i>&nbsp;{{appName}}
+        </span>
+        <form class="form-inline my-2 my-lg-0 mr-auto">
+            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar por" aria-label="pesquisar" />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Pesquisar</button>
+        </form>
+    </nav>
 
-    <h2>{{appName}}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col" ng-repeat="contato in contatos">
+                <div class="contact-card">
+                    <img src="img/img_avatar.png" style="width:100%;" />
+                    <div class="contact-container">
+                        <h4><b>{{contato.nome}}</b></h4>
+                        <p>{{contato.empresa}} - {{contato.cargo}}</p>
+                        <ul>
+                            <li><i class="fas fa-phone"></i>&nbsp;{{contato.telefone}}</li>
+                            <li><i class="fas fa-envelope"></i>&nbsp;{{contato.email}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/mainController.js"></script>
+    <script src="js/services/agendaApiService.js"></script>
 </body>
 </html>
