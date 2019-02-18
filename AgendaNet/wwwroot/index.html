@@ -17,7 +17,9 @@
         </span>
         <form class="form-inline my-2 my-lg-0 mr-auto">
             <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar por" aria-label="pesquisar" />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Pesquisar</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#contatoModal">
+                Novo Contato
+            </button>
         </form>
     </nav>
 
@@ -32,12 +34,20 @@
                         <ul>
                             <li><i class="fas fa-phone"></i>&nbsp;{{contato.telefone}}</li>
                             <li><i class="fas fa-envelope"></i>&nbsp;{{contato.email}}</li>
+                            <li><button type="button" ng-click="openEditFormModal(contato)">Editar</button></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    {{formEditMode}}
+    {{contato}}
+
+    <ng-include src="'../views/modal.html'"></ng-include>
+
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

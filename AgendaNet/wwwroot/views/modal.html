@@ -1,0 +1,67 @@
+﻿<div class="modal fade" id="contatoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Novo Contato</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="nome" placeholder="Nome" ng-model="contato.nome" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-building"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="empresa" placeholder="Empresa" ng-model="contato.empresa" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="cargo" placeholder="Cargo" ng-model="contato.cargo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="email" placeholder="Email" ng-model="contato.email" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="telefone" placeholder="Telefone" ng-model="contato.telefone" />
+                        </div>
+                    </div>
+                </div>
+                <input type="text" name="nome" ng-model="contato.nome" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="btnSalvar" ng-click="salvarContato()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
